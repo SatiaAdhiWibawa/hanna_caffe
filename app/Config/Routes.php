@@ -33,7 +33,7 @@ $routes->get('/', 'Auth::index');
 
 $routes->get('/dashboard', 'Dashboard::index');
 
-$routes->group('users', static function ($routes) {
+$routes->group('users', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'Users::index');
     $routes->get('tambah', 'Users::tambah');
     $routes->post('tambah_user', 'Users::tambah_user');
@@ -42,7 +42,7 @@ $routes->group('users', static function ($routes) {
     $routes->post('hapus/(:num)', 'Users::hapus_users/$1');
 });
 
-$routes->group('barang', static function ($routes) {
+$routes->group('barang', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'barang::index');
     $routes->get('tambah', 'barang::tambah');
     $routes->post('tambah_barang', 'barang::tambah_barang');
