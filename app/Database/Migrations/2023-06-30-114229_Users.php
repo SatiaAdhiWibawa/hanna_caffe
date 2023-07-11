@@ -34,7 +34,7 @@ class Users extends Migration
             ],
             'role'          => [
                 'type'              => 'VARCHAR',
-                'constraint'        => 100
+                'constraint'        => 20
             ],
             'foto'          => [
                 'type'              => 'VARCHAR',
