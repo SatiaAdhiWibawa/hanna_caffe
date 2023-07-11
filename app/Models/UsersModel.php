@@ -8,7 +8,7 @@ class UsersModel extends Model
 {
     protected $table          = 'users';
     protected $primaryKey     = 'id';
-    protected $allowedFields  = ['nama', 'id_karyawan', 'password', 'role', 'foto', 'created_at', 'updated_at'];
+    protected $allowedFields  = ['nama_user', 'username', 'password', 'role', 'foto', 'created_at', 'updated_at'];
 
 
     // FUNGSI UNTUK CEK LOGIN BERDASARKAN ID KARYAWAN DAN PASSWORD

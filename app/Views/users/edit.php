@@ -24,7 +24,7 @@
 
     <div class="content">
         <!-- general form elements -->
-        <div class="card card-primary">
+        <div class="card card-dark">
 
             <!-- /.card-header -->
             <div class="card-header">
@@ -40,22 +40,34 @@
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Karyawan" value="<?= $detail_user['nama'] ?>">
+                                <input type="text" name="nama_user" id="nama_user" class="form-control" placeholder="Nama" value="<?= $detail_user['nama_user'] ?>">
                             </div>
 
                             <div class="form-group">
-                                <label>ID Karyawan</label>
-                                <input type="text" name="id_karyawan" id="id_karyawan" class="form-control" placeholder="ID Karyawan" value="<?= $detail_user['id_karyawan'] ?>">
+                                <label>Username</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="<?= $detail_user['username'] ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="<?= $detail_user['password'] ?>>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="<?= $detail_user['password'] ?>">
                             </div>
 
                             <div class=" form-group">
                                 <label>Role</label>
-                                <input type="text" name="role" id="role" class="form-control" placeholder=" role" value="<?= $detail_user['role'] ?>" disabled>
+                                <Select name="role" id="role" class="form-control">
+                                    <option value=" <?= $detail_user['role'] ?>"><?= ucwords($detail_user['role']) ?></option>
+                                    <?php if ($detail_user['role'] == 'owner') { ?>
+                                        <option value='barista'>Barista</option>
+                                        <option value='chef'>Chef</option>
+                                    <?php } else if ($detail_user['role'] == 'barista') { ?>
+                                        <option value='owner'>Owner</option>
+                                        <option value='chef'>Chef</option>
+                                    <?php } else { ?>
+                                        <option value='owner'>Owner</option>
+                                        <option value='barista'>Barista</option>
+                                    <?php } ?>
+                                </Select>
                             </div>
 
                             <div class="form-group">

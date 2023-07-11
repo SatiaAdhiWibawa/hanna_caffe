@@ -7,7 +7,7 @@
      <!-- Brand Logo -->
      <a href="index3.html" class="brand-link">
          <img src="<?= base_url('assets') ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-         <span class="brand-text font-weight-light">PT_SUAI</span>
+         <span class="brand-text font-weight-light">Hanna Caffe</span>
      </a>
 
      <!-- Sidebar -->
@@ -59,18 +59,42 @@
                      <a href="pages/widgets.html" class="nav-link">
                          <i class="nav-icon fas fa-th"></i>
                          <p>
-                             Scan Barang
+                             Kelola Katagori Barang
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="pages/widgets.html" class="nav-link">
+                         <i class="nav-icon fas fa-th"></i>
+                         <p>
+                             Kelola Barang Masuk
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="pages/widgets.html" class="nav-link">
+                         <i class="nav-icon fas fa-th"></i>
+                         <p>
+                             Kelola Barang Keluar
                          </p>
                      </a>
                  </li>
 
 
-                 <li class="nav-header">PLANS</li>
+                 <li class="nav-header">STOCK OF NAME</li>
                  <li class="nav-item">
                      <a href="pages/widgets.html" class="nav-link">
                          <i class="nav-icon far fa-calendar-alt"></i>
                          <p>
-                             Total Aktual Plan
+                             Kelola Stok Opname
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="pages/widgets.html" class="nav-link">
+                         <i class="nav-icon far fa-calendar-alt"></i>
+                         <p>
+                             Kelola Jadwal Stok Opname
                          </p>
                      </a>
                  </li>

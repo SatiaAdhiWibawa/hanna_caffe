@@ -53,13 +53,13 @@ class Users extends BaseController
         }
 
         $data = [
-            'nama'        => $this->request->getVar('nama'),
-            'id_karyawan' => $this->request->getVar('id_karyawan'),
-            'password'    => md5($this->request->getVar('password')),
-            'role'        => $this->request->getVar('role'),
-            'foto'        => $foto,
-            'created_at'  => Time::now('Asia/Jakarta', 'en_US'),
-            'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
+            'nama_user'  => $this->request->getVar('nama_user'),
+            'username'   => $this->request->getVar('username'),
+            'password'   => md5($this->request->getVar('password')),
+            'role'       => $this->request->getVar('role'),
+            'foto'       => $foto,
+            'created_at' => Time::now('Asia/Jakarta', 'en_US'),
+            'updated_at' => Time::now('Asia/Jakarta', 'en_US')
         ];
 
         $this->usersModel->save($data);
@@ -104,9 +104,10 @@ class Users extends BaseController
 
         $data = [
             'id'          => (int)$id,
-            'nama'        => $this->request->getVar('nama'),
-            'id_karyawan' => $this->request->getVar('id_karyawan'),
+            'nama_user'   => $this->request->getVar('nama_user'),
+            'username'    => $this->request->getVar('username'),
             'password'    => $password,
+            'role'        => $this->request->getVar('role'),
             'foto'        => $foto,
             'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
         ];

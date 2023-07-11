@@ -47,7 +47,7 @@
                 <thead class="text-center">
                     <tr>
                         <th>No</th>
-                        <th>Id Karyawan</th>
+                        <th>Username</th>
                         <th>Nama</th>
                         <th>Foto</th>
                         <th>Role</th>
@@ -61,8 +61,8 @@
                     foreach ($list_user as $value) { ?>
                         <tr class="text-center">
                             <td><?= $no++ ?></td>
-                            <td><?= $value['id_karyawan'] ?></td>
-                            <td><?= $value['nama'] ?></td>
+                            <td><?= $value['username'] ?></td>
+                            <td><?= $value['nama_user'] ?></td>
                             <td><img src="<?= base_url('assets/images/' . $value['foto']) ?>" width="100px" height="100px"></td>
                             <td><?= $value['role'] ?></td>
 

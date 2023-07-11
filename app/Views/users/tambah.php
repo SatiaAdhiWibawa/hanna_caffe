@@ -26,7 +26,7 @@
 
     <div class="content">
         <!-- general form elements -->
-        <div class="card card-primary">
+        <div class="card card-dark">
 
             <!-- /.card-header -->
             <div class="card-header">
@@ -42,12 +42,12 @@
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Karyawan">
+                                <input type="text" name="nama_user" id="nama_user" class="form-control" placeholder="Nama User">
                             </div>
 
                             <div class="form-group">
-                                <label>ID Karyawan</label>
-                                <input type="text" name="id_karyawan" id="id_karyawan" class="form-control" placeholder="ID Karyawan">
+                                <label>Username</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username">
                             </div>
 
                             <div class="form-group">
@@ -58,9 +58,9 @@
                             <div class="form-group">
                                 <label>Role</label>
                                 <Select name="role" id="role" class="form-control">
-                                    <option value='admin'>Admin</option>
-                                    <option value='leader'>Leader</option>
-                                    <option value='operator'>Operator</option>
+                                    <option value='owner'>Owner</option>
+                                    <option value='barista'>Barista</option>
+                                    <option value='chef'>Chef</option>
                                 </Select>
                             </div>
 

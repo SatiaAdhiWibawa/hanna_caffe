@@ -23,11 +23,6 @@ class Users extends Migration
                 'constraint'        => 100,
                 'unique'            => true,
             ],
-            'id_karyawan'   => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 100,
-                'unique'            => true,
-            ],
             'password'      => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 100
