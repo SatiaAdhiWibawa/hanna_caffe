@@ -35,7 +35,7 @@
     <div class="login-box">
         <div class="login-logo">
             <img src="<?= base_url('assets/images/logo.png') ?>" alt="Logo" width="150px" height="150px"> <br>
-            <a href="<?= base_url() ?>"><b>PT Subang Autocomp Indonesia</b> (SUAI)</a>
+            <a href="<?= base_url() ?>"><b>Hanna Caffe</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
