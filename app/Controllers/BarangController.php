@@ -58,7 +58,7 @@ class BarangController extends BaseController
             'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
         ];
 
-        $this->barangModel->save($data);
+        $this->barangModel->insert($data);
         session()->setFlashdata('pesan', 'Data Berhasil Disimpan');
         return redirect()->to(base_url('barang'));
     }
@@ -90,7 +90,7 @@ class BarangController extends BaseController
             'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
         ];
 
-        $this->barangModel->save($data);
+        $this->barangModel->update($data);
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to(base_url('barang'));
     }

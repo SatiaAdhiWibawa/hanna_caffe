@@ -29,7 +29,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Auth::index');
+$routes->get('/', 'AuthController::index');
 
 $routes->get('dashboard', 'Dashboard::index');
 
@@ -49,6 +49,15 @@ $routes->group('barang', static function ($routes) {
     $routes->get('edit/(:num)', 'BarangController::edit/$1');
     $routes->post('edit_barang/(:num)', 'BarangController::edit_barang/$1');
     $routes->post('hapus/(:num)', 'BarangController::hapus_barang/$1');
+});
+
+$routes->group('kategori_barang', static function ($routes) {
+    $routes->get('', 'KategoriBarangController::index');
+    $routes->get('tambah', 'KategoriBarangController::tambah');
+    $routes->post('tambah_kategori', 'KategoriBarangController::tambah_kategori');
+    $routes->get('edit/(:num)', 'KategoriBarangController::edit/$1');
+    $routes->post('edit_kategori/(:num)', 'KategoriBarangController::edit_kategori/$1');
+    $routes->post('hapus/(:num)', 'KategoriBarangController::hapus_kategori/$1');
 });
 
 

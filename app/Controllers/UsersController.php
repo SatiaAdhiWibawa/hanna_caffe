@@ -63,9 +63,9 @@ class UsersController extends BaseController
             'updated_at' => Time::now('Asia/Jakarta', 'en_US')
         ];
 
-        $this->usersModel->save($data);
+        $this->usersModel->insert($data);
         session()->setFlashdata('pesan', 'Data Berhasil Disimpan');
-        return redirect()->to('/users');
+        return redirect()->to(base_url('users'));
     }
 
 
@@ -113,9 +113,9 @@ class UsersController extends BaseController
             'updated_at' => Time::now('Asia/Jakarta', 'en_US')
         ];
 
-        $this->usersModel->save($data);
+        $this->usersModel->update($data);
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
-        return redirect()->to('/users');
+        return redirect()->to(base_url('users'));
     }
 
 
@@ -131,6 +131,6 @@ class UsersController extends BaseController
 
         $this->usersModel->delete($id);
         session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
-        return redirect()->to('/users');
+        return redirect()->to(base_url('users'));
     }
 }

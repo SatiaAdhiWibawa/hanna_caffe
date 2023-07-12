@@ -56,10 +56,10 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="<?= base_url('katagori_barang') ?>" class="nav-link">
+                     <a href="<?= base_url('kategori_barang') ?>" class="nav-link">
                          <i class="nav-icon fas fa-th"></i>
                          <p>
-                             Kelola Katagori Barang
+                             Kelola Kategori Barang
                          </p>
                      </a>
                  </li>
