@@ -9,40 +9,39 @@ class Users extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id'            => [
-                'type'              => 'INT',
-                'constraint'        => 11,
-                'auto_increment'    => true
+            'id'                 => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'auto_increment' => true
             ],
-            'nama_user'             => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 100
+            'nama_user'          => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 100
             ],
-            'username'      => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 100,
-                'unique'            => true,
+            'username'           => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 100,
             ],
-            'password'      => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 100
+            'password'           => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 100
             ],
-            'role'          => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 20
+            'role'               => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 20
             ],
-            'foto'          => [
-                'type'              => 'VARCHAR',
-                'constraint'        => 255,
-                'default'           => 'default.png'
+            'foto'               => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
+                'default'        => 'default.png'
             ],
-            'created_at'    => [
-                'type'              => 'DATETIME',
-                'null'              => true
+            'created_at'         => [
+                'type'           => 'DATETIME',
+                'null'           => true
             ],
-            'updated_at'    => [
-                'type'              => 'DATETIME',
-                'null'              => true
+            'updated_at'         => [
+                'type'           => 'DATETIME',
+                'null'           => true
             ],
         ]);
         $this->forge->addKey('id', true);

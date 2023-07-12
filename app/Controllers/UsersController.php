@@ -5,8 +5,9 @@ namespace App\Controllers;
 use App\Models\UsersModel;
 use CodeIgniter\I18n\Time;
 
-class Users extends BaseController
+class UsersController extends BaseController
 {
+
     // DEKLARASI VARIABLE GLOBAL
     protected $usersModel;
 
@@ -46,7 +47,7 @@ class Users extends BaseController
     {
         $file = $this->request->getFile('foto');
         if ($file === null || $file->isValid() === false) {
-            $foto = 'default.png';
+            $foto = 'default.jpg';
         } else {
             $foto = $file->getRandomName();
             $file->move('assets/images/', $foto);
@@ -103,13 +104,13 @@ class Users extends BaseController
         }
 
         $data = [
-            'id'          => (int)$id,
-            'nama_user'   => $this->request->getVar('nama_user'),
-            'username'    => $this->request->getVar('username'),
-            'password'    => $password,
-            'role'        => $this->request->getVar('role'),
-            'foto'        => $foto,
-            'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
+            'id'         => (int)$id,
+            'nama_user'  => $this->request->getVar('nama_user'),
+            'username'   => $this->request->getVar('username'),
+            'password'   => $password,
+            'role'       => $this->request->getVar('role'),
+            'foto'       => $foto,
+            'updated_at' => Time::now('Asia/Jakarta', 'en_US')
         ];
 
         $this->usersModel->save($data);
@@ -123,8 +124,8 @@ class Users extends BaseController
     {
         $getUser = $this->usersModel->getDetailUser($id);
 
-        // JIKA FOTO BUKAN DEFAULT.PNG MAKA HAPUS FOTO
-        if ($getUser['foto'] != 'default.png') {
+        // JIKA FOTO BUKAN DEFAULT.JPG MAKA HAPUS FOTO
+        if ($getUser['foto'] != 'default.jpg') {
             unlink('assets/images/' . $getUser['foto']);
         }
 

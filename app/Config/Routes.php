@@ -31,24 +31,24 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Auth::index');
 
-$routes->get('/dashboard', 'Dashboard::index');
+$routes->get('dashboard', 'Dashboard::index');
 
-$routes->group('users', ['filter' => 'auth'], function ($routes) {
-    $routes->get('', 'Users::index');
-    $routes->get('tambah', 'Users::tambah');
-    $routes->post('tambah_user', 'Users::tambah_user');
-    $routes->get('edit/(:num)', 'Users::edit/$1');
-    $routes->post('edit_users/(:num)', 'Users::edit_users/$1');
-    $routes->post('hapus/(:num)', 'Users::hapus_users/$1');
+$routes->group('users', static function ($routes) {
+    $routes->get('', 'UsersController::index');
+    $routes->get('tambah', 'UsersController::tambah');
+    $routes->post('tambah_user', 'UsersController::tambah_user');
+    $routes->get('edit/(:num)', 'UsersController::edit/$1');
+    $routes->post('edit_users/(:num)', 'UsersController::edit_users/$1');
+    $routes->post('hapus/(:num)', 'UsersController::hapus_users/$1');
 });
 
-$routes->group('barang', ['filter' => 'auth'], function ($routes) {
-    $routes->get('', 'barang::index');
-    $routes->get('tambah', 'barang::tambah');
-    $routes->post('tambah_barang', 'barang::tambah_barang');
-    $routes->get('edit/(:num)', 'barang::edit/$1');
-    $routes->post('edit_barang/(:num)', 'barang::edit_barang/$1');
-    $routes->post('hapus/(:num)', 'barang::hapus_barang/$1');
+$routes->group('barang', static function ($routes) {
+    $routes->get('', 'BarangController::index');
+    $routes->get('tambah', 'BarangController::tambah');
+    $routes->post('tambah_barang', 'BarangController::tambah_barang');
+    $routes->get('edit/(:num)', 'BarangController::edit/$1');
+    $routes->post('edit_barang/(:num)', 'BarangController::edit_barang/$1');
+    $routes->post('hapus/(:num)', 'BarangController::hapus_barang/$1');
 });
 
 
