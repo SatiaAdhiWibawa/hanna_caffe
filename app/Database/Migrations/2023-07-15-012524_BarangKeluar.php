@@ -17,6 +17,7 @@ class BarangKeluar extends Migration
             'id_barang'          => [
                 'type'           => 'INT',
                 'constraint'     => 11,
+                'foreign_key'    => true
             ],
             'jumlah'             => [
                 'type'           => 'INT',

@@ -73,9 +73,13 @@ $routes->group('barang_masuk', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'BarangMasukController::index');
     $routes->get('tambah', 'BarangMasukController::tambah');
     $routes->post('tambah_barang_masuk', 'BarangMasukController::tambah_barang_masuk');
-    $routes->get('edit/(:num)', 'BarangMasukController::edit/$1');
-    $routes->post('edit_barang_masuk/(:num)', 'BarangMasukController::edit_barang_masuk/$1');
-    $routes->post('hapus/(:num)', 'BarangMasukController::hapus_barang_masuk/$1');
+});
+
+// KELOLA BARANG KELUAR
+$routes->group('barang_keluar', ['filter' => 'auth'], function ($routes) {
+    $routes->get('', 'BarangKeluarController::index');
+    $routes->get('tambah', 'BarangKeluarController::tambah');
+    $routes->post('tambah_barang_keluar', 'BarangKeluarController::tambah_barang_keluar');
 });
 
 
