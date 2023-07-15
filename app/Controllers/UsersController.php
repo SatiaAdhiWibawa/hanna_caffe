@@ -38,7 +38,7 @@ class UsersController extends BaseController
             'title'    => 'Kelola User',
             'subtitle' => 'Tambah User'
         ];
-        return view('users/tambah', $data);
+        return view('users/tambah_user', $data);
     }
 
 
@@ -77,7 +77,7 @@ class UsersController extends BaseController
             'subtitle'    => 'Edit User',
             'detail_user' => $this->usersModel->find($id)
         ];
-        return view('users/edit', $data);
+        return view('users/edit_user', $data);
     }
 
 

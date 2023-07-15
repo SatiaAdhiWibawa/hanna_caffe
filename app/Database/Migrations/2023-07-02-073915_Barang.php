@@ -25,7 +25,7 @@ class Barang extends Migration
             'id_kategori'        => [
                 'type'           => 'INT',
                 'constraint'     => 11,
-                'foreign_key'    => 'kategori(id)',
+                'foreign_key'    => true,
             ],
             'stok'               => [
                 'type'           => 'INT',

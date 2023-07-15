@@ -3,21 +3,21 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
-use App\Models\UsersModel;
+use App\Models\KategoriBarangModel;
 use CodeIgniter\I18n\Time;
 
 class BarangController extends BaseController
 {
     // DEKLARASI VARIABLE GLOBAL
     protected $barangModel;
-    protected $usersModel;
+    protected $KategoriBarangModel;
 
 
     // FUNGSI CONSTRUCT INI DIJALANKAN SETIAP KALI MEMBUAT OBJEK BARU DARI CLASS INI
     public function __construct()
     {
-        $this->barangModel = new BarangModel();
-        $this->usersModel  = new UsersModel();
+        $this->barangModel          = new BarangModel();
+        $this->kategoriBarangModel  = new KategoriBarangModel();
     }
 
 
@@ -27,7 +27,7 @@ class BarangController extends BaseController
         $data = [
             'title'       => 'Kelola Barang',
             'subtitle'    => 'Daftar Barang',
-            'list_barang' => $this->barangModel->orderBy('updated_at', 'DESC')->findAll() // AMBIL SEMUA DATA BARANG DARI DATABASE BARANG URUTKAN BERDASARKAN UPDATED_AT TERBARU
+            'list_barang' => $this->barangModel->getBarang(),
         ];
         return view('barang/index', $data);
     }
@@ -37,10 +37,11 @@ class BarangController extends BaseController
     public function tambah()
     {
         $data = [
-            'title'    => 'Kelola Barang',
-            'subtitle' => 'Tambah Barang'
+            'title'           => 'Kelola Barang',
+            'subtitle'        => 'Tambah Barang',
+            'kategori_barang' => $this->kategoriBarangModel->findAll() // AMBIL SEMUA DATA KATEGORI DARI DATABASE KATEGORI
         ];
-        return view('barang/tambah', $data);
+        return view('barang/tambah_barang', $data);
     }
 
 
@@ -48,12 +49,11 @@ class BarangController extends BaseController
     public function tambah_barang()
     {
         $data = [
+            'kode_barang' => $this->request->getVar('kode_barang'),
             'nama_barang' => $this->request->getVar('nama_barang'),
             'id_kategori' => $this->request->getVar('id_kategori'),
-            'harga_beli'  => $this->request->getVar('harga_beli'),
-            'harga_jual'  => $this->request->getVar('harga_jual'),
-            'user_id'     => $this->request->getVar('user_id'),
-            'quantity'    => $this->request->getVar('quantity'),
+            'stok'        => $this->request->getVar('stok'),
+            'exp'         => $this->request->getVar('exp'),
             'created_at'  => Time::now('Asia/Jakarta', 'en_US'),
             'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
         ];
@@ -68,11 +68,12 @@ class BarangController extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'     => 'Kelola Barang',
-            'subtitle'  => 'Edit Barang',
-            'barang'    => $this->barangModel->find($id),
+            'title'           => 'Kelola Barang',
+            'subtitle'        => 'Edit Barang',
+            'kategori_barang' => $this->kategoriBarangModel->findAll(),
+            'barang'          => $this->barangModel->getBarang($id),
         ];
-        return view('barang/edit', $data);
+        return view('barang/edit_barang', $data);
     }
 
 
@@ -81,16 +82,15 @@ class BarangController extends BaseController
     {
         $data = [
             'id'          => $id,
+            'kode_barang' => $this->request->getVar('kode_barang'),
             'nama_barang' => $this->request->getVar('nama_barang'),
             'id_kategori' => $this->request->getVar('id_kategori'),
-            'harga_beli'  => $this->request->getVar('harga_beli'),
-            'harga_jual'  => $this->request->getVar('harga_jual'),
-            'user_id'     => $this->request->getVar('user_id'),
-            'quantity'    => $this->request->getVar('quantity'),
+            'stok'        => $this->request->getVar('stok'),
+            'exp'         => $this->request->getVar('exp'),
             'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
         ];
 
-        $this->barangModel->update($data);
+        $this->barangModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to(base_url('barang'));
     }

@@ -41,42 +41,42 @@
                         <form action="<?= base_url('barang/tambah_barang') ?>" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-group">
+                                <label>Kode Barang</label>
+                                <input type="text" name="kode_barang" id="kode_barang" class="form-control" placeholder="Kode Barang">
+                            </div>
+
+                            <div class="form-group">
                                 <label>Nama Barang</label>
                                 <input type="text" name="nama_barang" id="nama_barang" class="form-control" placeholder="Nama Barang">
                             </div>
 
                             <div class="form-group">
-                                <label>Katagory Barang</label>
-                                <input type="text" name="id_kategori" id="id_kategori" class="form-control" placeholder="Kategori Barang">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Harga Beli</label>
-                                <input type="text" name="harga_beli" id="harga_beli" class="form-control" placeholder="Harga Beli">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Harga Jual</label>
-                                <input type="text" name="harga_jual" id="harga_jual" class="form-control" placeholder="Harga Jual">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Quantity</label>
-                                <input type="text" name="quantity" id="quantity" class="form-control" placeholder="Quantity">
-                            </div>
-
-                            <div class="form-group">
-                                <label>User</label>
-                                <input type="text" name="user_id" id="user_id" class="form-control" placeholder="User">
-                            </div>
-
-                            <!-- <div class="form-group">
-                                <label>Status</label>
-                                <Select name="status" id="status" class="form-control">
-                                    <option value='ok'>Ok</option>
-                                    <option value='reject'>Reject</option>
+                                <label>Kategori Barang</label>
+                                <Select name="id_kategori" id="id_kategori" class="form-control">
+                                    <option value=''>Pilih Katagori Barang</option>
+                                    <?php foreach ($kategori_barang as $value) { ?>
+                                        <option value='<?= $value['id'] ?>'><?= $value['nama_kategori'] ?></option>
+                                    <?php } ?>
                                 </Select>
-                            </div> -->
+                            </div>
+
+                            <div class="form-group">
+                                <label>Stok</label>
+                                <input type="text" name="stok" id="stok" class="form-control" placeholder="Stok">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tanggal Expired:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="exp" name="exp" class="form-control" placeholder="Pilih tanggal Expired" readonly>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -91,4 +91,12 @@
     </div>
 
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#exp", {
+            dateFormat: "Y-m-d",
+            allowInput: true
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

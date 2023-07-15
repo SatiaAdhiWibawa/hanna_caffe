@@ -53,7 +53,6 @@ class AuthController extends BaseController
     }
 
 
-
     // FUNGSI UNTUK LOGOUT
     public function logout()
     {

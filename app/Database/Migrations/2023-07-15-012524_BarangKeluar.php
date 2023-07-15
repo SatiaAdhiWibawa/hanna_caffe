@@ -25,7 +25,7 @@ class BarangKeluar extends Migration
             'user_id'            => [
                 'type'           => 'INT',
                 'constraint'     => 11,
-                'foreign_key'    => 'user(id)'
+                'foreign_key'    => true
             ],
             'tanggal'            => [
                 'type'           => 'DATE',

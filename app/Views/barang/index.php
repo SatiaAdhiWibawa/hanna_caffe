@@ -47,11 +47,11 @@
                 <thead class="text-center">
                     <tr>
                         <th>No</th>
+                        <th>Kode Barang</th>
                         <th>Nama Barang</th>
                         <th>Kategori Barang</th>
-                        <th>Harga Beli</th>
-                        <th>Harga Jual</th>
-                        <th>Qty</th>
+                        <th>Stok</th>
+                        <th>Expired</th>
                         <th>Tanggal Input</th>
                         <th>Action</th>
                     </tr>
@@ -63,12 +63,12 @@
                     foreach ($list_barang as $value) { ?>
                         <tr class="text-center">
                             <td><?= $no++ ?></td>
+                            <td><?= $value['kode_barang'] ?></td>
                             <td><?= $value['nama_barang'] ?></td>
-                            <td><?= $value['id_kategori'] ?></td>
-                            <td><?= $value['harga_beli'] ?></td>
-                            <td><?= $value['harga_jual'] ?></td>
-                            <td><?= $value['quantity'] ?></td>
-                            <td><?= $value['created_at'] ?></td>
+                            <td><?= $value['nama_kategori'] ?></td>
+                            <td><?= $value['stok'] ?></td>
+                            <td><?= $value['exp'] ?></td>
+                            <td><?= $value['updated_at'] ?></td>
 
                             <td class="d-flex justify-content-center">
                                 <a href="<?= base_url('barang/edit/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
