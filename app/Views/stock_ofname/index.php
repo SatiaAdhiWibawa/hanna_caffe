@@ -26,7 +26,7 @@
     <!-- Main content -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Data Table Barang Masuk</h3>
+            <h3 class="card-title">Data Table Stock Ofname</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -40,7 +40,7 @@
             }
             ?>
 
-            <button type="submit" class="btn btn-success"><a href="<?= base_url('barang_masuk/tambah') ?>" style="color: white;"> + Tambah Data Barang Masuk</a></button>
+            <button type="submit" class="btn btn-success"><a href="<?= base_url('stock_ofname/tambah') ?>" style="color: white;"> + Tambah Data Stock Ofname</a></button>
             <br><br><br>
 
             <table id="example1" class="table table-bordered table-striped">
@@ -49,6 +49,7 @@
                         <th>No</th>
                         <th>Nama Barang</th>
                         <th>Jumlah</th>
+                        <th>Selisih</th>
                         <th>User</th>
                         <th>Tanggal Input</th>
                         <th>Keterangan</th>
@@ -63,6 +64,7 @@
                             <td><?= $no++ ?></td>
                             <td><?= $value['nama_barang'] ?></td>
                             <td><?= $value['jumlah'] ?></td>
+                            <td style="color: red;"><?= $value['selisih'] ?></td>
                             <td><?= $value['nama_user'] ?></td>
                             <td><?= $value['tanggal'] ?></td>
                             <td><?= $value['keterangan'] ?? "-" ?></td>

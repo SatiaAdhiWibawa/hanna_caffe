@@ -76,7 +76,7 @@
 
                  <li class="nav-header">STOCK OPNAME</li>
                  <li class="nav-item">
-                     <a href="<?= base_url('stok_opname') ?>" class="nav-link <?= (service('request')->uri->getPath() == 'stok_opname') ? 'bg-gradient-primary active' : ''; ?>">
+                     <a href="<?= base_url('stock_ofname') ?>" class="nav-link <?= (service('request')->uri->getPath() == 'stock_ofname') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon far fa-calendar-alt"></i>
                          <p>
                              Kelola Stok Opname
