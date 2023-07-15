@@ -33,7 +33,7 @@ class BarangMasukController extends BaseController
         $data = [
             'title'       => 'Kelola Barang Masuk',
             'subtitle'    => 'Daftar Barang Masuk',
-            'list_barang' => $list_barang
+            'list_barang' => $list_barang ?? []
         ];
         return view('barang_masuk/index', $data);
     }

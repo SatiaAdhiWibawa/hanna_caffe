@@ -42,7 +42,12 @@
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Barang</label>
-                                <input type="text" name="id_barang" id="id_barang" class="form-control" placeholder="Id Barang">
+                                <Select name="id_barang" id="id_barang" class="form-control">
+                                    <option value=''>Pilih Barang</option>
+                                    <?php foreach ($list_barang as $value) { ?>
+                                        <option value='<?= $value['id'] ?>'><?= $value['nama_barang'] . "-" . $value['nama_kategori'] ?></option>
+                                    <?php } ?>
+                                </Select>
                             </div>
 
                             <div class="form-group">

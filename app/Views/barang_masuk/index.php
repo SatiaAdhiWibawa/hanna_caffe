@@ -61,10 +61,10 @@
                     foreach ($list_barang as $value) { ?>
                         <tr class="text-center">
                             <td><?= $no++ ?></td>
-                            <td><?= $value['nama_barang'] ?></td>
-                            <td><?= $value['jumlah'] ?></td>
-                            <td><?= $value['user_id'] ?></td>
-                            <td><?= $value['tanggal'] ?></td>
+                            <td><?= $value['nama_barang'] ?? "" ?></td>
+                            <td><?= $value['jumlah'] ?? "" ?></td>
+                            <td><?= $value['user_id'] ?? "" ?></td>
+                            <td><?= $value['tanggal'] ?? "" ?></td>
                             <td><?= $value['keterangan'] ?? "-" ?></td>
                         <?php } ?>
 

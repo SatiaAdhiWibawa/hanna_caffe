@@ -40,10 +40,6 @@
 
                         <form action="<?= base_url('barang_masuk/tambah_barang_masuk') ?>" method="post">
                             <?= csrf_field(); ?>
-                            <!-- <div class="form-group">
-                                <label>Nama Barang</label>
-                                <input type="text" name="id_barang" id="id_barang" class="form-control" placeholder="Id Barang">
-                            </div> -->
                             <div class="form-group">
                                 <label>Nama Barang</label>
                                 <Select name="id_barang" id="id_barang" class="form-control">

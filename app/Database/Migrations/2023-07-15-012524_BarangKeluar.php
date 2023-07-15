@@ -9,7 +9,7 @@ class BarangKeluar extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id_barang_keluar'   => [
+            'id'                 => [
                 'type'           => 'INT',
                 'constraint'     => 11,
                 'auto_increment' => true,

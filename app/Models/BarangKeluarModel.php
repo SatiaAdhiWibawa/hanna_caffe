@@ -20,4 +20,23 @@ class BarangKeluarModel extends Model
         $builder->set('stok', 'stok-' . $data['jumlah'], false);
         $builder->update();
     }
+
+    // FUNGSI DAPATKAN DATA BARANG KELUAR JOIN KE TABEL BARANG
+    public function getDataBarangKeluar($id)
+    {
+        $builder = $this->db->table('barang_keluar');
+        $builder->select('barang_keluar.*, barang.nama_barang');
+        $builder->join('barang', 'barang.id = barang_keluar.id_barang');
+        $builder->where('barang_keluar.id_barang_keluar', $id);
+        return $builder->get()->getRowArray();
+    }
+
+    public function getDataBarangMasuk($id)
+    {
+        $builder = $this->db->table('barang_masuk');
+        $builder->select('barang_masuk.*, barang.nama_barang');
+        $builder->join('barang', 'barang.id = barang_masuk.id_barang');
+        $builder->where('barang_masuk.id', $id);
+        return $builder->get()->getRowArray();
+    }
 }
