@@ -41,7 +41,7 @@ class BarangController extends BaseController
             'subtitle'        => 'Tambah Barang',
             'kategori_barang' => $this->kategoriBarangModel->findAll() // AMBIL SEMUA DATA KATEGORI DARI DATABASE KATEGORI
         ];
-        return view('barang/tambah_barang', $data);
+        return view('barang/tambah', $data);
     }
 
 
@@ -73,7 +73,7 @@ class BarangController extends BaseController
             'kategori_barang' => $this->kategoriBarangModel->findAll(),
             'barang'          => $this->barangModel->getBarang($id),
         ];
-        return view('barang/edit_barang', $data);
+        return view('barang/edit', $data);
     }
 
 

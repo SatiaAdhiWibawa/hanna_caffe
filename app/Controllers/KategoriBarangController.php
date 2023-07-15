@@ -39,7 +39,7 @@ class KategoriBarangController extends BaseController
             'title'    => 'Kelola Kategori Barang',
             'subtitle' => 'Tambah Kategori Barang'
         ];
-        return view('kategori_barang/tambah_kategori_barang', $data);
+        return view('kategori_barang/tambah', $data);
     }
 
 
@@ -65,7 +65,7 @@ class KategoriBarangController extends BaseController
             'subtitle'        => 'Edit Kategori Barang',
             'kategori_barang' => $this->kategoriBarangModel->find($id)
         ];
-        return view('kategori_barang/editkategori_barang', $data);
+        return view('kategori_barang/edit', $data);
     }
 
 

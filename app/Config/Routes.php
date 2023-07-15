@@ -34,10 +34,6 @@ $routes->get('/', 'AuthController::index');
 $routes->post('/login', 'AuthController::login');
 $routes->post('/logout', 'AuthController::logout', ['filter' => 'auth']);
 
-
-// DASHBOARD
-$routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
-
 // KELOLA USERS
 $routes->group('users', static function ($routes) {
     $routes->get('', 'UsersController::index');

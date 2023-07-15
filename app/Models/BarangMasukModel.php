@@ -19,4 +19,15 @@ class BarangMasukModel extends Model
         $builder->set('stok', 'stok+' . $data['jumlah'], false);
         $builder->update();
     }
+
+
+    // FUNGSI DAPATKAN DATA BARANG MASUK JOIN KE TABEL BARANG
+    public function getDataBarangMasuk($id)
+    {
+        $builder = $this->db->table('barang_masuk');
+        $builder->select('barang_masuk.*, barang.nama_barang');
+        $builder->join('barang', 'barang.id = barang_masuk.id_barang');
+        $builder->where('barang_masuk.id', $id);
+        return $builder->get()->getRowArray();
+    }
 }

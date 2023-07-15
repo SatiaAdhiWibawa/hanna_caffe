@@ -37,7 +37,7 @@ class BarangKeluarController extends BaseController
             'title'    => 'Kelola Barang Keluar',
             'subtitle' => 'Tambah Barang Keluar',
         ];
-        return view('barang_keluar/tambah_barang_keluar', $data);
+        return view('barang_keluar/tambah', $data);
     }
 
 
