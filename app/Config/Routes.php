@@ -30,10 +30,12 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'AuthController::index');
+$routes->post('/login', 'AuthController::login');
+$routes->post('/logout', 'AuthController::logout', ['filter' => 'auth']);
 
-$routes->get('dashboard', 'Dashboard::index');
+$routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
 
-$routes->group('users', static function ($routes) {
+$routes->group('users', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'UsersController::index');
     $routes->get('tambah', 'UsersController::tambah');
     $routes->post('tambah_user', 'UsersController::tambah_user');
@@ -42,7 +44,7 @@ $routes->group('users', static function ($routes) {
     $routes->post('hapus/(:num)', 'UsersController::hapus_users/$1');
 });
 
-$routes->group('barang', static function ($routes) {
+$routes->group('barang', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'BarangController::index');
     $routes->get('tambah', 'BarangController::tambah');
     $routes->post('tambah_barang', 'BarangController::tambah_barang');
@@ -51,7 +53,7 @@ $routes->group('barang', static function ($routes) {
     $routes->post('hapus/(:num)', 'BarangController::hapus_barang/$1');
 });
 
-$routes->group('kategori_barang', static function ($routes) {
+$routes->group('kategori_barang', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'KategoriBarangController::index');
     $routes->get('tambah', 'KategoriBarangController::tambah');
     $routes->post('tambah_kategori', 'KategoriBarangController::tambah_kategori');

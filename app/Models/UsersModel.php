@@ -11,18 +11,11 @@ class UsersModel extends Model
     protected $allowedFields  = ['nama_user', 'username', 'password', 'role', 'foto', 'created_at', 'updated_at'];
 
 
-    // FUNGSI UNTUK CEK LOGIN BERDASARKAN ID KARYAWAN DAN PASSWORD
-    public function cekLogin($idKaryawan, $password)
+    // FUNGSI UNTUK CEK LOGIN BERDASARKAN USERNAME DAN PASSWORD
+    public function cekLogin($username, $password)
     {
         $builder = $this->db->table('users');
-        $builder->where(array('id_karyawan' => $idKaryawan, 'password' => $password));
-        return $builder->get()->getRowArray();
-    }
-
-    public function getDetailUser($id)
-    {
-        $builder = $this->db->table('users');
-        $builder->where(array('id' => $id));
+        $builder->where(array('username' => $username, 'password' => $password));
         return $builder->get()->getRowArray();
     }
 }

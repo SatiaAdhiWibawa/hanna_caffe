@@ -75,7 +75,7 @@ class UsersController extends BaseController
         $data = [
             'title'       => 'Kelola User',
             'subtitle'    => 'Edit User',
-            'detail_user' => $this->usersModel->getDetailUser($id)
+            'detail_user' => $this->usersModel->find($id)
         ];
         return view('users/edit', $data);
     }
@@ -84,9 +84,9 @@ class UsersController extends BaseController
     // FUNGSI UNTUK EDIT USER DENGAN METODE POST
     public function edit_users($id)
     {
-        $getUser  = $this->usersModel->getDetailUser($id);
-        $passLama = $getUser['password'];
-        $file     = $this->request->getFile('foto');
+        $getUser       = $this->usersModel->find($id);
+        $password_lama = $getUser['password'];
+        $file          = $this->request->getFile('foto');
 
         // JIKA TIDAK ADA FOTO YANG DIUPLOAD/DIEDIT
         if ($file == "") {
@@ -97,8 +97,8 @@ class UsersController extends BaseController
         }
 
         // JIKA PASSWORD TIDAK DIUBAH
-        if ($this->request->getVar('password') == $passLama) {
-            $password = $passLama;
+        if ($this->request->getVar('password') == $password_lama) {
+            $password = $password_lama;
         } else {
             $password = md5($this->request->getVar('password'));
         }
@@ -113,7 +113,7 @@ class UsersController extends BaseController
             'updated_at' => Time::now('Asia/Jakarta', 'en_US')
         ];
 
-        $this->usersModel->update($data);
+        $this->usersModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to(base_url('users'));
     }

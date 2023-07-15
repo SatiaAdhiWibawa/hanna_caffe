@@ -41,11 +41,20 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Silahkan Login</p>
+                <?php
+
+                // NOTIFIKASI GAGAL LOGIN
+                if (session()->getFlashdata('pesan')) {
+                    echo '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <i class="icon fas fa-check"></i>' . session()->getFlashdata('pesan') . '</div>';
+                }
+                ?>
 
 
-                <form action="../../index3.html" method="post">
+                <form action="<?= base_url('/login') ?>" method="post">
                     <div class="input-group mb-3">
-                        <input name="username" type="username" class="form-control" placeholder="Id Karyawan">
+                        <input name="username" type="username" class="form-control" placeholder="Username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>

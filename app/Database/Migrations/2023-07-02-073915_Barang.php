@@ -14,6 +14,10 @@ class Barang extends Migration
                 'constraint'     => 11,
                 'auto_increment' => true
             ],
+            'kode_barang'        => [
+                'type'           => 'INT',
+                'constraint'     => 11
+            ],
             'nama_barang'        => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 100
@@ -23,22 +27,13 @@ class Barang extends Migration
                 'constraint'     => 11,
                 'foreign_key'    => 'kategori(id)',
             ],
-            'harga_beli'         => [
+            'stok'               => [
                 'type'           => 'INT',
                 'constraint'     => 11
             ],
-            'harga_jual'         => [
-                'type'           => 'INT',
-                'constraint'     => 11
-            ],
-            'user_id'            => [
-                'type'           => 'INT',
-                'constraint'     => 11,
-                'foreign_key'    => 'users(id)'
-            ],
-            'quantity'           => [
-                'type'           => 'INT',
-                'constraint'     => 11
+            'exp'                => [
+                'type'           => 'DATE',
+                'null'           => true
             ],
             'created_at'         => [
                 'type'           => 'DATETIME',
