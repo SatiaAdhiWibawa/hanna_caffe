@@ -26,14 +26,13 @@ class BarangMasukController extends BaseController
     {
         $barang = $this->barangMasukModel->findAll();
         foreach ($barang as $value) {
-            $idBarang      = $value['id_barang'];
-            $list_barang[] = $this->barangMasukModel->getDataBarangMasuk($idBarang);
+            $list_barang[] = $this->barangMasukModel->getDataBarangMasuk($value['id_barang']); // AMBIL DATA BARANG MASUK BERDASARKAN ID BARANG
         }
 
         $data = [
             'title'       => 'Kelola Barang Masuk',
             'subtitle'    => 'Daftar Barang Masuk',
-            'list_barang' => $list_barang ?? []
+            'list_barang' => $list_barang ?? []  // JIKA $list_barang TIDAK ADA MAKA DIISI DENGAN ARRAY KOSONG
         ];
         return view('barang_masuk/index', $data);
     }

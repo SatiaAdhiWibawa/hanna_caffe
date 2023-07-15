@@ -45,7 +45,7 @@ class AuthController extends BaseController
                 'logged_in' => true
             ];
             $session->set($seesionDatas);
-            return redirect()->to(base_url('dashboard'));
+            return redirect()->to(base_url('users'));
         } else {
             session()->setFlashdata('pesan', 'Username atau Password Salah!');
             return redirect()->to(base_url('/'));

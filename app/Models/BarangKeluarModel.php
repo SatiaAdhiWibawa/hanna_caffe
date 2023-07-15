@@ -21,22 +21,15 @@ class BarangKeluarModel extends Model
         $builder->update();
     }
 
-    // FUNGSI DAPATKAN DATA BARANG KELUAR JOIN KE TABEL BARANG
+
+    // FUNGSI INI DIGUNAKAN UNTUK MENGAMBIL DATA BARANG KELUAR BERDASARKAN ID BARANG LALU JOIN KE TABEL BARANG DAN TABEL USERS UNTUK MENDAPATKAN NAMA BARANG DAN NAMA USER
     public function getDataBarangKeluar($id)
     {
         $builder = $this->db->table('barang_keluar');
-        $builder->select('barang_keluar.*, barang.nama_barang');
+        $builder->select('barang_keluar.*, barang.nama_barang, users.nama_user');
         $builder->join('barang', 'barang.id = barang_keluar.id_barang');
-        $builder->where('barang_keluar.id_barang_keluar', $id);
-        return $builder->get()->getRowArray();
-    }
-
-    public function getDataBarangMasuk($id)
-    {
-        $builder = $this->db->table('barang_masuk');
-        $builder->select('barang_masuk.*, barang.nama_barang');
-        $builder->join('barang', 'barang.id = barang_masuk.id_barang');
-        $builder->where('barang_masuk.id', $id);
+        $builder->join('users', 'users.id = barang_keluar.user_id');
+        $builder->where('barang_keluar.id_barang', $id);
         return $builder->get()->getRowArray();
     }
 }

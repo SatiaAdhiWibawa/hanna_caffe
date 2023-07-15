@@ -21,13 +21,14 @@ class BarangMasukModel extends Model
     }
 
 
-    // FUNGSI DAPATKAN DATA BARANG MASUK JOIN KE TABEL BARANG
+    // FUNGSI INI DIGUNAKAN UNTUK MENGAMBIL DATA BARANG MASUK BERDASARKAN ID BARANG LALU JOIN KE TABEL BARANG DAN TABEL USERS UNTUK MENDAPATKAN NAMA BARANG DAN NAMA USER
     public function getDataBarangMasuk($id)
     {
         $builder = $this->db->table('barang_masuk');
-        $builder->select('barang_masuk.*, barang.nama_barang');
+        $builder->select('barang_masuk.*, barang.nama_barang, users.nama_user');
         $builder->join('barang', 'barang.id = barang_masuk.id_barang');
-        $builder->where('barang_masuk.id', $id);
+        $builder->join('users', 'users.id = barang_masuk.user_id');
+        $builder->where('barang_masuk.id_barang', $id);
         return $builder->get()->getRowArray();
     }
 }

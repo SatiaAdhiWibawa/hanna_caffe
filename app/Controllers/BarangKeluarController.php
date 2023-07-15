@@ -33,7 +33,7 @@ class BarangKeluarController extends BaseController
         $data = [
             'title'       => 'Kelola Barang Keluar',
             'subtitle'    => 'Daftar Barang Keluar',
-            'list_barang' => $list_barang ?? []
+            'list_barang' => $list_barang ?? []  // JIKA $list_barang TIDAK ADA MAKA DIISI DENGAN ARRAY KOSONG
         ];
         return view('barang_Keluar/index', $data);
     }

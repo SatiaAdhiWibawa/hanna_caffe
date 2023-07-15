@@ -35,7 +35,7 @@ class BarangKeluar extends Migration
                 'type'           => 'TEXT',
             ],
         ]);
-        $this->forge->addKey('id_barang_keluar', true);
+        $this->forge->addKey('id', true);
         $this->forge->createTable('barang_keluar');
     }
 

@@ -58,7 +58,7 @@
                  </li>
                  <li class="nav-item">
                      <a href="<?= base_url('barang_masuk') ?>" class="nav-link <?= ($currentURL === 'barang_masuk') ? 'bg-gradient-primary active' : ''; ?>">
-                         <i class="nav-icon fas fa-th"></i>
+                         <i class="nav-icon fas fa-edit"></i>
                          <p>
                              Kelola Barang Masuk
                          </p>
@@ -66,7 +66,7 @@
                  </li>
                  <li class="nav-item">
                      <a href="<?= base_url('barang_keluar') ?>" class="nav-link <?= ($currentURL === 'barang_keluar') ? 'bg-gradient-primary active' : ''; ?>">
-                         <i class="nav-icon fas fa-th"></i>
+                         <i class="nav-icon fas fa-edit"></i>
                          <p>
                              Kelola Barang Keluar
                          </p>
