@@ -38,7 +38,7 @@ class AuthController extends BaseController
             $data = $this->usersModel->cekLogin($username, $password);
             $seesionDatas   = [
                 'id'        => $data['id'],
-                'nama'      => $data['nama_user'],
+                'nama_user' => $data['nama_user'],
                 'username'  => $data['username'],
                 'foto'      => $data['foto'],
                 'role'      => $data['role'],

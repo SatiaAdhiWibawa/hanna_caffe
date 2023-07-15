@@ -34,9 +34,12 @@ $routes->get('/', 'AuthController::index');
 $routes->post('/login', 'AuthController::login');
 $routes->post('/logout', 'AuthController::logout', ['filter' => 'auth']);
 
+
+// DASHBOARD
 $routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
 
-$routes->group('users', ['filter' => 'auth'], function ($routes) {
+// KELOLA USERS
+$routes->group('users', static function ($routes) {
     $routes->get('', 'UsersController::index');
     $routes->get('tambah', 'UsersController::tambah');
     $routes->post('tambah_user', 'UsersController::tambah_user');
@@ -45,6 +48,7 @@ $routes->group('users', ['filter' => 'auth'], function ($routes) {
     $routes->post('hapus/(:num)', 'UsersController::hapus_users/$1');
 });
 
+// KELOLA BARANG
 $routes->group('barang', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'BarangController::index');
     $routes->get('tambah', 'BarangController::tambah');
@@ -54,6 +58,7 @@ $routes->group('barang', ['filter' => 'auth'], function ($routes) {
     $routes->post('hapus/(:num)', 'BarangController::hapus_barang/$1');
 });
 
+// KELOLA KATEGORI BARANG
 $routes->group('kategori_barang', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'KategoriBarangController::index');
     $routes->get('tambah', 'KategoriBarangController::tambah');
@@ -61,6 +66,16 @@ $routes->group('kategori_barang', ['filter' => 'auth'], function ($routes) {
     $routes->get('edit/(:num)', 'KategoriBarangController::edit/$1');
     $routes->post('edit_kategori/(:num)', 'KategoriBarangController::edit_kategori/$1');
     $routes->post('hapus/(:num)', 'KategoriBarangController::hapus_kategori/$1');
+});
+
+// KELOLA BARANG MASUK
+$routes->group('barang_masuk', ['filter' => 'auth'], function ($routes) {
+    $routes->get('', 'BarangMasukController::index');
+    $routes->get('tambah', 'BarangMasukController::tambah');
+    $routes->post('tambah_barang_masuk', 'BarangMasukController::tambah_barang_masuk');
+    $routes->get('edit/(:num)', 'BarangMasukController::edit/$1');
+    $routes->post('edit_barang_masuk/(:num)', 'BarangMasukController::edit_barang_masuk/$1');
+    $routes->post('hapus/(:num)', 'BarangMasukController::hapus_barang_masuk/$1');
 });
 
 

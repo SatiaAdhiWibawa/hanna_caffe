@@ -26,7 +26,7 @@ class KategoriBarangController extends BaseController
         $data = [
             'title'    => 'Kelola Kategori Barang',
             'subtitle' => 'List Kategori Barang',
-            'kategori' => $this->kategoriBarangModel->orderBy('updated_at', 'DESC')->findAll() // AMBIL SEMUA DATA BARANG DARI DATABASE BARANG URUTKAN BERDASARKAN UPDATED_AT TERBARU
+            'kategori' => $this->kategoriBarangModel->findAll() // AMBIL SEMUA DATA BARANG DARI DATABASE BARANG URUTKAN BERDASARKAN UPDATED_AT TERBARU
         ];
         return view('kategori_barang/index', $data);
     }
@@ -39,7 +39,7 @@ class KategoriBarangController extends BaseController
             'title'    => 'Kelola Kategori Barang',
             'subtitle' => 'Tambah Kategori Barang'
         ];
-        return view('kategori_barang/tambah', $data);
+        return view('kategori_barang/tambah_kategori_barang', $data);
     }
 
 
@@ -65,7 +65,7 @@ class KategoriBarangController extends BaseController
             'subtitle'        => 'Edit Kategori Barang',
             'kategori_barang' => $this->kategoriBarangModel->find($id)
         ];
-        return view('kategori_barang/edit', $data);
+        return view('kategori_barang/editkategori_barang', $data);
     }
 
 

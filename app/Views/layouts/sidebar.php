@@ -1,5 +1,8 @@
  <!-- UNTUK MENENTUKAN POSISI URL SEKARANG -->
- <?php $uri = service('uri'); ?>
+ <?php
+    $uri        = service('uri');
+    $currentURL = strtolower($uri->getPath());
+    ?>
 
 
  <!-- Main Sidebar Container -->
@@ -29,7 +32,7 @@
                with font-awesome or any other icon font library -->
                  <li class="nav-header">DASHBOARD</li>
                  <li class="nav-item">
-                     <a href="<?= base_url('dashboard') ?>" class="nav-link  <?php if (strtolower($uri->getPath()) == 'dashboard') echo 'bg-gradient-primary active' ?>">
+                     <a href="<?= base_url('dashboard') ?>" class="nav-link <?php if (strpos($currentURL, 'dashboard') !== false) echo 'bg-gradient-primary active'; ?>">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
                          <p>
                              Dashboard
@@ -40,7 +43,7 @@
 
                  <li class="nav-header">MASTER DATA</li>
                  <li class="nav-item">
-                     <a href="<?= base_url('users') ?>" class="nav-link <?php if (strtolower($uri->getPath()) == 'users') echo 'bg-gradient-primary active' ?>">
+                     <a href="<?= base_url('users') ?>" class="nav-link <?= ($currentURL === 'users') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon fas fa-duotone fa-users"></i>
                          <p>
                              Kelola User
@@ -48,7 +51,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="<?= base_url('barang') ?>" class="nav-link <?php if (strtolower($uri->getPath()) == 'barang') echo 'bg-gradient-primary active' ?>">
+                     <a href="<?= base_url('barang') ?>" class="nav-link <?= ($currentURL === 'barang') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon fas fa-th"></i>
                          <p>
                              Kelola Barang
@@ -56,7 +59,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="<?= base_url('kategori_barang') ?>" class="nav-link">
+                     <a href="<?= base_url('kategori_barang') ?>" class="nav-link <?= ($currentURL === 'kategori_barang') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon fas fa-th"></i>
                          <p>
                              Kelola Kategori Barang
@@ -64,7 +67,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="<?= base_url('barang_masuk') ?>" class="nav-link">
+                     <a href="<?= base_url('barang_masuk') ?>" class="nav-link <?= ($currentURL === 'barang_masuk') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon fas fa-th"></i>
                          <p>
                              Kelola Barang Masuk
@@ -72,7 +75,7 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="<?= base_url('barang_keluar') ?>" class="nav-link">
+                     <a href="<?= base_url('barang_keluar') ?>" class="nav-link <?= ($currentURL === 'barang_keluar') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon fas fa-th"></i>
                          <p>
                              Kelola Barang Keluar
@@ -81,28 +84,19 @@
                  </li>
 
 
-                 <li class="nav-header">STOCK OF NAME</li>
+                 <li class="nav-header">STOCK OPNAME</li>
                  <li class="nav-item">
-                     <a href="<?= base_url('stok_opname') ?>" class="nav-link">
+                     <a href="<?= base_url('stok_opname') ?>" class="nav-link <?= (service('request')->uri->getPath() == 'stok_opname') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon far fa-calendar-alt"></i>
                          <p>
                              Kelola Stok Opname
                          </p>
                      </a>
                  </li>
-                 <li class="nav-item">
-                     <a href="<?= base_url('jadwal_stok_opname') ?>" class="nav-link">
-                         <i class="nav-icon far fa-calendar-alt"></i>
-                         <p>
-                             Kelola Jadwal Stok Opname
-                         </p>
-                     </a>
-                 </li>
-
 
                  <li class="nav-header">LAPORAN</li>
                  <li class="nav-item">
-                     <a href="<?= base_url('laporan') ?>" class="nav-link">
+                     <a href="<?= base_url('laporan') ?>" class="nav-link <?= (service('request')->uri->getPath() == 'laporan') ? 'bg-gradient-primary active' : ''; ?>">
                          <i class="nav-icon fas fa-file"></i>
                          <p>
                              Laporan

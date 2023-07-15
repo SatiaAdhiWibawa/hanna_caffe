@@ -20,7 +20,6 @@ class BarangModel extends Model
 
         if ($id === null) {
             // JIKA ID KOSONG, MAKA AMBIL SEMUA DATA BARANG DARI DATABASE BARANG DAN NAMA KATEGORI BARANG DARI DATABASE KATEGORI BARANG
-            $builder->orderBy('barang.updated_at', 'DESC');
             return $builder->get()->getResultArray();
         } else {
             // JIKA ID TIDAK KOSONG, MAKA AMBIL DATA BARANG DARI DATABASE BARANG DAN NAMA KATEGORI BARANG DARI DATABASE KATEGORI BARANG

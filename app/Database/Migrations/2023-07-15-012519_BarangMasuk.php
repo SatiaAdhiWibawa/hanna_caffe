@@ -9,7 +9,7 @@ class BarangMasuk extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id_barang_masuk'    => [
+            'id'    => [
                 'type'           => 'INT',
                 'constraint'     => 11,
                 'auto_increment' => true,
@@ -17,6 +17,7 @@ class BarangMasuk extends Migration
             'id_barang'          => [
                 'type'           => 'INT',
                 'constraint'     => 11,
+                'foreign_key'    => true
             ],
             'jumlah' => [
                 'type'           => 'INT',
@@ -32,9 +33,10 @@ class BarangMasuk extends Migration
             ],
             'keterangan'         => [
                 'type'           => 'TEXT',
+                'null'           => true,
             ],
         ]);
-        $this->forge->addKey('id_barang_masuk', true);
+        $this->forge->addKey('id', true);
         $this->forge->createTable('barang_masuk');
     }
 

@@ -26,11 +26,11 @@
 
     <div class="content">
         <!-- general form elements -->
-        <div class="card card-primary">
+        <div class="card card-dark">
 
             <!-- /.card-header -->
             <div class="card-header">
-                <h3 class="card-title">Tambah Data Kategori Barang</h3>
+                <h3 class="card-title">Edit Data Kategori Barang</h3>
             </div>
 
             <!-- form start -->
@@ -38,11 +38,11 @@
                 <div class="row ">
                     <div class="col-sm-8 ">
 
-                        <form action="<?= base_url('kategori_barang/tambah_kategori') ?>" method="post">
+                        <form action="<?= base_url('kategori_barang/edit_kategori/' . $kategori_barang['id']) ?>" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-group">
-                                <label>Nama Kategori Barang</label>
-                                <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" placeholder="Nama Kategori Barang">
+                                <label>Nama Kategori</label>
+                                <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" placeholder="Nama Conveyor" value="<?= $kategori_barang['nama_kategori'] ?>">
                             </div>
 
                             <div class="form-group">
