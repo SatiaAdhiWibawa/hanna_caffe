@@ -59,6 +59,7 @@
                                 <label>Role</label>
                                 <Select name="role" id="role" class="form-control">
                                     <option value='owner'>Owner</option>
+                                    <option value='kepala_gudang'>Kepala Gudang</option>
                                     <option value='barista'>Barista</option>
                                     <option value='chef'>Chef</option>
                                 </Select>

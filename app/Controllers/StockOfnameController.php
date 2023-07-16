@@ -7,7 +7,6 @@ use App\Models\StockOfnameModel;
 
 class StockOfnameController extends BaseController
 {
-
     // DEKLARASI VARIABLE GLOBAL
     protected $barangModel;
     protected $stockOfnameModel;
@@ -25,7 +24,7 @@ class StockOfnameController extends BaseController
         $data = [
             'title'       => 'Kelola Stok Ofname',
             'subtitle'    => 'Daftar Stock Ofname',
-            'list_barang' => $this->stockOfnameModel->getStockOfname()
+            'list_barang' => $this->stockOfnameModel->getStockOfname() // AMBIL SEMUA DATA STOCK OFNAME DARI DATABASE STOCK OFNAME
         ];
         return view('stock_ofname/index', $data);
     }
@@ -37,7 +36,7 @@ class StockOfnameController extends BaseController
         $data = [
             'title'       => 'Kelola Stok Ofname',
             'subtitle'    => 'Tambah Stok Ofname',
-            'list_barang' => $this->barangModel->getBarang()
+            'list_barang' => $this->barangModel->getBarang() // AMBIL SEMUA DATA BARANG DARI DATABASE BARANG
         ];
         return view('stock_ofname/tambah', $data);
     }
@@ -49,7 +48,7 @@ class StockOfnameController extends BaseController
         $userId     = $session->get('id');
         $idBarang   = $this->request->getVar('id_barang');
         $jumlah     = $this->request->getVar('jumlah');
-        $stokBarang = $this->barangModel->select('stok')->find($idBarang);
+        $stokBarang = $this->barangModel->select('stok')->find($idBarang); // AMBIL DATA STOK DARI DATABASE BARANG BERDASARKAN ID BARANG
         $selisih    = $jumlah - $stokBarang['stok'];
 
         $data = [

@@ -60,13 +60,20 @@
                                     <?php if ($detail_user['role'] == 'owner') { ?>
                                         <option value='barista'>Barista</option>
                                         <option value='chef'>Chef</option>
+                                        <option value='kepala_gudang'>Kepala Gudang</option>
                                     <?php } else if ($detail_user['role'] == 'barista') { ?>
                                         <option value='owner'>Owner</option>
                                         <option value='chef'>Chef</option>
+                                        <option value='kepala_gudang'>Kepala Gudang</option>
+                                    <?php } else if ($detail_user['role'] == 'chef') { ?>
+                                        <option value='owner'>Owner</option>
+                                        <option value='barista'>Barista</option>
+                                        <option value='kepala_gudang'>Kepala Gudang</option>
                                     <?php } else { ?>
                                         <option value='owner'>Owner</option>
                                         <option value='barista'>Barista</option>
-                                    <?php } ?>
+                                        <option value='chef'>Chef</option>
+                                    <?php  } ?>
                                 </Select>
                             </div>
 

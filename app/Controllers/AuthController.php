@@ -6,7 +6,6 @@ use App\Models\UsersModel;
 
 class AuthController extends BaseController
 {
-
     // DEKLARASI MODEL
     protected $usersModel;
 
@@ -35,6 +34,7 @@ class AuthController extends BaseController
         // CEK LOGIN BERDASARKAN USERNAME DAN PASSWORD
         $data = $this->usersModel->cekLogin($username, $password);
         if ($this->usersModel->cekLogin($username, $password)) {
+            // JIKA ADA DATA USER MAKA SET SESSION DAN ARAHKAN KE HALAMAN SESUAI ROLE
             $data = $this->usersModel->cekLogin($username, $password);
             $seesionDatas   = [
                 'id'        => $data['id'],
@@ -45,8 +45,17 @@ class AuthController extends BaseController
                 'logged_in' => true
             ];
             $session->set($seesionDatas);
-            return redirect()->to(base_url('users'));
+
+            // CEK ROLE USER DAN ARAHKAN KE HALAMAN SESUAI ROLE
+            if ($session->get('role') == 'owner') {
+                return redirect()->to(base_url('users'));
+            } else if ($session->get('role') == 'barista' || $session->get('role') == 'chef') {
+                return redirect()->to(base_url('barang_masuk'));
+            } else {
+                return redirect()->to(base_url('barang'));
+            }
         } else {
+            // JIKA TIDAK ADA DATA USER MAKA KEMBALIKAN KE LOGIN DAN TAMPILKAN PESAN ERROR
             session()->setFlashdata('pesan', 'Username atau Password Salah!');
             return redirect()->to(base_url('/'));
         }

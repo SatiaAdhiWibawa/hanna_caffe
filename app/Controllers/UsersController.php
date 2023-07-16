@@ -7,7 +7,6 @@ use CodeIgniter\I18n\Time;
 
 class UsersController extends BaseController
 {
-
     // DEKLARASI VARIABLE GLOBAL
     protected $usersModel;
 
@@ -63,8 +62,11 @@ class UsersController extends BaseController
             'updated_at' => Time::now('Asia/Jakarta', 'en_US')
         ];
 
+        // INSERT DATA KE DATABASE MENGGUNAKAN MODEL
         $this->usersModel->insert($data);
+        // SET FLASHDATA UNTUK MENAMPILKAN ALERT SUCCESS
         session()->setFlashdata('pesan', 'Data Berhasil Disimpan');
+        // ARAHKAN KE HALAMAN /users
         return redirect()->to(base_url('users'));
     }
 
@@ -113,8 +115,11 @@ class UsersController extends BaseController
             'updated_at' => Time::now('Asia/Jakarta', 'en_US')
         ];
 
+        // UPDATE DATA KE DATABASE MENGGUNAKAN MODEL
         $this->usersModel->update($id, $data);
+        // SET FLASHDATA UNTUK MENAMPILKAN ALERT SUCCESS
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        // ARAHKAN KE HALAMAN /users
         return redirect()->to(base_url('users'));
     }
 
@@ -129,8 +134,11 @@ class UsersController extends BaseController
             unlink('assets/images/' . $getUser['foto']);
         }
 
+        // HAPUS DATA KE DATABASE MENGGUNAKAN MODEL
         $this->usersModel->delete($id);
+        // SET FLASHDATA UNTUK MENAMPILKAN ALERT SUCCESS
         session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+        // ARAHKAN KE HALAMAN /users
         return redirect()->to(base_url('users'));
     }
 }

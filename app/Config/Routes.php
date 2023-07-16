@@ -85,6 +85,12 @@ $routes->group('stock_ofname', ['filter' => 'auth'], function ($routes) {
     $routes->post('tambah_stok_ofname', 'StockOfnameController::tambah_stok_ofname');
 });
 
+// LAPORAN
+$routes->group('laporan', ['filter' => 'auth'], function ($routes) {
+    $routes->get('', 'laporanController::index');
+    $routes->post('download-harian', 'laporanController::download_harian');
+});
+
 
 /*
  * --------------------------------------------------------------------

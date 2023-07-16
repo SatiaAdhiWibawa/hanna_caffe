@@ -51,7 +51,7 @@
                         <th>Jumlah</th>
                         <th>Selisih</th>
                         <th>User</th>
-                        <th>Tanggal Input</th>
+                        <th>Tanggal SO</th>
                         <th>Keterangan</th>
                     </tr>
                 </thead>
@@ -68,7 +68,8 @@
                             <td><?= $value['nama_user'] ?></td>
                             <td><?= $value['tanggal'] ?></td>
                             <td><?= $value['keterangan'] ?? "-" ?></td>
-                        <?php } ?>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

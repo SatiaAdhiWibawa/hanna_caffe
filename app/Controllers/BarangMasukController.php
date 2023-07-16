@@ -7,7 +7,6 @@ use App\Models\BarangMasukModel;
 
 class BarangMasukController extends BaseController
 {
-
     // DEKLARASI VARIABLE GLOBAL
     protected $barangModel;
     protected $barangMasukModel;
@@ -44,7 +43,7 @@ class BarangMasukController extends BaseController
         $data = [
             'title'       => 'Kelola Barang Masuk',
             'subtitle'    => 'Tambah Barang Masuk',
-            'list_barang' => $this->barangModel->getBarang()
+            'list_barang' => $this->barangModel->getBarang() // AMBIL SEMUA DATA KATEGORI DARI DATABASE KATEGORI
         ];
         return view('barang_masuk/tambah', $data);
     }

@@ -90,8 +90,11 @@ class BarangController extends BaseController
             'updated_at'  => Time::now('Asia/Jakarta', 'en_US')
         ];
 
+        // UPDATE DATA BERDASARKAN ID
         $this->barangModel->update($id, $data);
+        // BUAT FLASH DATA UNTUK MENAMPILKAN ALERT BERHASIL
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        // ARAHKAN KE HALAMAN BARANG
         return redirect()->to(base_url('barang'));
     }
 

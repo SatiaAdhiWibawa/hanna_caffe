@@ -8,7 +8,6 @@ use CodeIgniter\I18n\Time;
 
 class KategoriBarangController extends BaseController
 {
-
     // DEKLARASI VARIABLE
     protected $kategoriBarangModel;
 
@@ -52,7 +51,11 @@ class KategoriBarangController extends BaseController
             'updated_at'    => Time::now('Asia/Jakarta', 'en_US')
         ];
 
+        // INSERT DATA BARU KE DATABASE MENGGUNAKAN MODEL
         $this->kategoriBarangModel->insert($data);
+        // SET FLASHDATA UNTUK MENAMPILKAN ALERT SUCCESS
+        session()->setFlashdata('success', 'Berhasil menambahkan kategori baru');
+        // ARAHKAN KE HALAMAN /kategori_barang
         return redirect()->to('/kategori_barang');
     }
 
@@ -63,7 +66,7 @@ class KategoriBarangController extends BaseController
         $data = [
             'title'           => 'Kelola Kategori Barang',
             'subtitle'        => 'Edit Kategori Barang',
-            'kategori_barang' => $this->kategoriBarangModel->find($id)
+            'kategori_barang' => $this->kategoriBarangModel->find($id) // AMBIL DATA BARANG BERDASARKAN ID
         ];
         return view('kategori_barang/edit', $data);
     }
@@ -77,7 +80,11 @@ class KategoriBarangController extends BaseController
             'updated_at'    => Time::now('Asia/Jakarta', 'en_US')
         ];
 
+        // UPDATE DATA BARANG BERDASARKAN ID
         $this->kategoriBarangModel->update($id, $data);
+        // SET FLASHDATA UNTUK MENAMPILKAN ALERT SUCCESS
+        session()->setFlashdata('success', 'Berhasil mengubah kategori');
+        // ARAHKAN KE HALAMAN /kategori_barang
         return redirect()->to(base_url('kategori_barang'));
     }
 

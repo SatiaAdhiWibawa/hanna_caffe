@@ -11,7 +11,7 @@ class BarangModel extends Model
     protected $allowedFields = ['kode_barang', 'nama_barang', 'id_kategori', 'stok', 'exp', 'created_at', 'updated_at'];
 
 
-    // AMBIL SEMUA DATA BARANG DARI DATABASE BARANG DAN NAMA KATEGORI BARANG DARI DATABASE KATEGORI BARANG BERDASARKAN UPDATED_AT DARI YANG TERBARU KE YANG TERLAMA
+    // AMBIL SEMUA DATA BARANG DARI DATABASE BARANG DAN NAMA KATEGORI BARANG DARI DATABASE KATEGORI BARANG
     public function getBarang($id = null)
     {
         $builder = $this->db->table('barang');
