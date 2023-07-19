@@ -3,46 +3,46 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
-use App\Models\StockOfnameModel;
+use App\Models\StockOpnameModel;
 
-class StockOfnameController extends BaseController
+class StockOpnameController extends BaseController
 {
     // DEKLARASI VARIABLE GLOBAL
     protected $barangModel;
-    protected $stockOfnameModel;
+    protected $stockOpnameModel;
 
     // FUNGSI CONSTRUCT INI DIJALANKAN SETIAP KALI MEMBUAT OBJEK BARU DARI CLASS INI
     public function __construct()
     {
         $this->barangModel      = new BarangModel();
-        $this->stockOfnameModel = new StockOfnameModel();
+        $this->stockOpnameModel = new StockOpnameModel();
     }
 
-    // FUNGSI INDEX INI DIJALANKAN KETIKA MEMBUKA URL /stok_ofname
+    // FUNGSI INDEX INI DIJALANKAN KETIKA MEMBUKA URL /stok_opname
     public function index()
     {
         $data = [
-            'title'       => 'Kelola Stok Ofname',
-            'subtitle'    => 'Daftar Stock Ofname',
-            'list_barang' => $this->stockOfnameModel->getStockOfname() // AMBIL SEMUA DATA STOCK OFNAME DARI DATABASE STOCK OFNAME
+            'title'       => 'Kelola Stok Opname',
+            'subtitle'    => 'Daftar Stock Opname',
+            'list_barang' => $this->stockOpnameModel->getStockOpname() // AMBIL SEMUA DATA STOCK Opname DARI DATABASE STOCK Opname
         ];
-        return view('stock_ofname/index', $data);
+        return view('stock_opname/index', $data);
     }
 
-    // FUNGSI TAMBAH BARANG INI DIJALANKAN KETIKA MEMBUKA URL /stok_ofname/tambah
+    // FUNGSI TAMBAH BARANG INI DIJALANKAN KETIKA MEMBUKA URL /stok_opname/tambah
     public function tambah()
     {
 
         $data = [
-            'title'       => 'Kelola Stok Ofname',
-            'subtitle'    => 'Tambah Stok Ofname',
+            'title'       => 'Kelola Stok Opname',
+            'subtitle'    => 'Tambah Stok Opname',
             'list_barang' => $this->barangModel->getBarang() // AMBIL SEMUA DATA BARANG DARI DATABASE BARANG
         ];
-        return view('stock_ofname/tambah', $data);
+        return view('stock_opname/tambah', $data);
     }
 
     // FUNGSI TAMBAH BARANG DENGAN METODE POST
-    public function tambah_stok_ofname()
+    public function tambah_stok_opname()
     {
         $session    = session();
         $userId     = $session->get('id');
@@ -60,11 +60,11 @@ class StockOfnameController extends BaseController
             'keterangan' => $this->request->getVar('keterangan')
         ];
 
-        // INSERT DATA KE TABEL STOCK OFNAME
-        $this->stockOfnameModel->insert($data);
+        // INSERT DATA KE TABEL STOCK Opname
+        $this->stockOpnameModel->insert($data);
         // SET PESAN SUKSES
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
-        // ARAHKAN KE HALAMAN STOCK OFNAME
-        return redirect()->to('/stock_ofname');
+        // ARAHKAN KE HALAMAN STOCK Opname
+        return redirect()->to('/stock_opname');
     }
 }

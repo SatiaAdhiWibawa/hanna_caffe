@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class StokOfname extends Migration
+class StokOpname extends Migration
 {
     public function up()
     {
@@ -40,11 +40,11 @@ class StokOfname extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('stok_ofname');
+        $this->forge->createTable('stok_opname');
     }
 
     public function down()
     {
-        $this->forge->dropTable('stok_ofname');
+        $this->forge->dropTable('stok_opname');
     }
 }

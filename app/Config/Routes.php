@@ -78,11 +78,11 @@ $routes->group('barang_keluar', ['filter' => 'auth'], function ($routes) {
     $routes->post('tambah_barang_keluar', 'BarangKeluarController::tambah_barang_keluar');
 });
 
-// STOK OFNAME
-$routes->group('stock_ofname', ['filter' => 'auth'], function ($routes) {
-    $routes->get('', 'StockOfnameController::index');
-    $routes->get('tambah', 'StockOfnameController::tambah');
-    $routes->post('tambah_stok_ofname', 'StockOfnameController::tambah_stok_ofname');
+// STOK opname
+$routes->group('stock_opname', ['filter' => 'auth'], function ($routes) {
+    $routes->get('', 'StockOpnameController::index');
+    $routes->get('tambah', 'StockOpnameController::tambah');
+    $routes->post('tambah_stok_opname', 'StockOpnameController::tambah_stok_opname');
 });
 
 // LAPORAN

@@ -26,7 +26,7 @@
     <!-- Main content -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Data Table Stock Ofname</h3>
+            <h3 class="card-title">Data Table Stock Opname</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -40,7 +40,7 @@
             }
             ?>
 
-            <button type="submit" class="btn btn-success"><a href="<?= base_url('stock_ofname/tambah') ?>" style="color: white;"> + Tambah Data Stock Ofname</a></button>
+            <button type="submit" class="btn btn-success"><a href="<?= base_url('stock_opname/tambah') ?>" style="color: white;"> + Tambah Data Stock Opname</a></button>
             <br><br><br>
 
             <table id="example1" class="table table-bordered table-striped">

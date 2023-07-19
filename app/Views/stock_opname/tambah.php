@@ -38,7 +38,7 @@
                 <div class="row ">
                     <div class="col-sm-8 ">
 
-                        <form action="<?= base_url('stock_ofname/tambah_stok_ofname') ?>" method="post">
+                        <form action="<?= base_url('stock_opname/tambah_stok_opname') ?>" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Barang</label>
