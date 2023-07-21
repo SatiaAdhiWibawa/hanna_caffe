@@ -50,7 +50,7 @@ class AuthController extends BaseController
             if ($session->get('role') == 'owner') {
                 return redirect()->to(base_url('users'));
             } else if ($session->get('role') == 'barista' || $session->get('role') == 'chef') {
-                return redirect()->to(base_url('barang_masuk'));
+                return redirect()->to(base_url('transaksi_masuk'));
             } else {
                 return redirect()->to(base_url('barang'));
             }
@@ -65,8 +65,10 @@ class AuthController extends BaseController
     // FUNGSI UNTUK LOGOUT
     public function logout()
     {
+        // HAPUS SESSION
         $session = session();
         $session->destroy();
+        // ARAHKAN KE HALAMAN LOGIN
         return redirect()->to(base_url('/'));
     }
 }

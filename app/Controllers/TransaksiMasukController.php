@@ -3,29 +3,29 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
-use App\Models\BarangMasukModel;
+use App\Models\TransaksiMasukModel;
 
-class BarangMasukController extends BaseController
+class TransaksiMasukController extends BaseController
 {
     // DEKLARASI VARIABLE GLOBAL
     protected $barangModel;
-    protected $barangMasukModel;
+    protected $transaksiMasukModel;
 
 
     // FUNGSI CONSTRUCT INI DIJALANKAN SETIAP KALI MEMBUAT OBJEK BARU DARI CLASS INI
     public function __construct()
     {
         $this->barangModel      = new BarangModel();
-        $this->barangMasukModel = new BarangMasukModel();
+        $this->transaksiMasukModel = new TransaksiMasukModel();
     }
 
 
     // FUNGSI INDEX INI DIJALANKAN KETIKA MEMBUKA URL /barang
     public function index()
     {
-        $barang = $this->barangMasukModel->findAll();
+        $barang = $this->transaksiMasukModel->findAll();
         foreach ($barang as $value) {
-            $list_barang[] = $this->barangMasukModel->getDataBarangMasuk($value['id_barang']); // AMBIL DATA BARANG MASUK BERDASARKAN ID BARANG
+            $list_barang[] = $this->transaksiMasukModel->getDataBarangMasuk($value['id_barang']); // AMBIL DATA BARANG MASUK BERDASARKAN ID BARANG
         }
 
         $data = [
@@ -33,7 +33,7 @@ class BarangMasukController extends BaseController
             'subtitle'    => 'Daftar Barang Masuk',
             'list_barang' => $list_barang ?? []  // JIKA $list_barang TIDAK ADA MAKA DIISI DENGAN ARRAY KOSONG
         ];
-        return view('barang_masuk/index', $data);
+        return view('transaksi_masuk/index', $data);
     }
 
 
@@ -45,12 +45,12 @@ class BarangMasukController extends BaseController
             'subtitle'    => 'Tambah Barang Masuk',
             'list_barang' => $this->barangModel->getBarang() // AMBIL SEMUA DATA KATEGORI DARI DATABASE KATEGORI
         ];
-        return view('barang_masuk/tambah', $data);
+        return view('transaksi_masuk/tambah', $data);
     }
 
 
     // FUNGSI TAMBAH BARANG DENGAN METODE POST
-    public function tambah_barang_masuk()
+    public function tambah_transaksi_masuk()
     {
         $session = session();
         $data = [
@@ -61,15 +61,15 @@ class BarangMasukController extends BaseController
         ];
 
         // INSERT DATA BARANG MASUK KE DATABASE
-        $this->barangMasukModel->insert($data);
+        $this->transaksiMasukModel->insert($data);
 
         // TAMBAH STOK BARANG KE DATABASE BARANG
-        $this->barangMasukModel->tambahBarangMasuk($data);
+        $this->transaksiMasukModel->tambahBarangMasuk($data);
 
         // BUAT FLASHDATA UNTUK MENAMPILKAN ALERT SUCCESS
         session()->setFlashdata('pesan', 'Berhasil menambahkan barang masuk');
 
         // REDIRECT KE HALAMAN BARANG MASUK
-        return redirect()->to(base_url('/barang_masuk'));
+        return redirect()->to(base_url('/transaksi_masuk'));
     }
 }

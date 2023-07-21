@@ -11,12 +11,14 @@ class StockOpnameController extends BaseController
     protected $barangModel;
     protected $stockOpnameModel;
 
+
     // FUNGSI CONSTRUCT INI DIJALANKAN SETIAP KALI MEMBUAT OBJEK BARU DARI CLASS INI
     public function __construct()
     {
         $this->barangModel      = new BarangModel();
         $this->stockOpnameModel = new StockOpnameModel();
     }
+
 
     // FUNGSI INDEX INI DIJALANKAN KETIKA MEMBUKA URL /stok_opname
     public function index()
@@ -29,6 +31,7 @@ class StockOpnameController extends BaseController
         return view('stock_opname/index', $data);
     }
 
+
     // FUNGSI TAMBAH BARANG INI DIJALANKAN KETIKA MEMBUKA URL /stok_opname/tambah
     public function tambah()
     {
@@ -40,6 +43,7 @@ class StockOpnameController extends BaseController
         ];
         return view('stock_opname/tambah', $data);
     }
+
 
     // FUNGSI TAMBAH BARANG DENGAN METODE POST
     public function tambah_stok_opname()

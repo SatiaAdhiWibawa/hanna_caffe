@@ -35,7 +35,7 @@ $routes->post('/login', 'AuthController::login');
 $routes->post('/logout', 'AuthController::logout', ['filter' => 'auth']);
 
 // KELOLA USERS
-$routes->group('users', static function ($routes) {
+$routes->group('users', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'UsersController::index');
     $routes->get('tambah', 'UsersController::tambah');
     $routes->post('tambah_user', 'UsersController::tambah_user');
@@ -65,17 +65,17 @@ $routes->group('kategori_barang', ['filter' => 'auth'], function ($routes) {
 });
 
 // KELOLA BARANG MASUK
-$routes->group('barang_masuk', ['filter' => 'auth'], function ($routes) {
-    $routes->get('', 'BarangMasukController::index');
-    $routes->get('tambah', 'BarangMasukController::tambah');
-    $routes->post('tambah_barang_masuk', 'BarangMasukController::tambah_barang_masuk');
+$routes->group('transaksi_masuk', ['filter' => 'auth'], function ($routes) {
+    $routes->get('', 'TransaksiMasukController::index');
+    $routes->get('tambah', 'TransaksiMasukController::tambah');
+    $routes->post('tambah_transaksi_masuk', 'TransaksiMasukController::tambah_transaksi_masuk');
 });
 
 // KELOLA BARANG KELUAR
-$routes->group('barang_keluar', ['filter' => 'auth'], function ($routes) {
-    $routes->get('', 'BarangKeluarController::index');
-    $routes->get('tambah', 'BarangKeluarController::tambah');
-    $routes->post('tambah_barang_keluar', 'BarangKeluarController::tambah_barang_keluar');
+$routes->group('transaksi_keluar', ['filter' => 'auth'], function ($routes) {
+    $routes->get('', 'TransaksiKeluarController::index');
+    $routes->get('tambah', 'TransaksiKeluarController::tambah');
+    $routes->post('tambah_transaksi_keluar', 'TransaksiKeluarController::tambah_transaksi_keluar');
 });
 
 // STOK opname

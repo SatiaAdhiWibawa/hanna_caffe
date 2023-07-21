@@ -67,7 +67,7 @@ $session = session();
 
                 <?php if ($session->get('role') == 'barista' || $session->get('role') == 'chef') { ?>
                     <li class="nav-item">
-                        <a href="<?= base_url('barang_masuk') ?>" class="nav-link <?= ($currentURL === 'barang_masuk') ? 'bg-gradient-primary active' : ''; ?>">
+                        <a href="<?= base_url('transaksi_masuk') ?>" class="nav-link <?= ($currentURL === 'transaksi_masuk') ? 'bg-gradient-primary active' : ''; ?>">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
                                 Kelola Barang Masuk
@@ -75,7 +75,7 @@ $session = session();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('barang_keluar') ?>" class="nav-link <?= ($currentURL === 'barang_keluar') ? 'bg-gradient-primary active' : ''; ?>">
+                        <a href="<?= base_url('transaksi_keluar') ?>" class="nav-link <?= ($currentURL === 'transaksi_keluar') ? 'bg-gradient-primary active' : ''; ?>">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
                                 Kelola Barang Keluar

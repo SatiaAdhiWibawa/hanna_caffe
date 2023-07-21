@@ -26,7 +26,7 @@
     <!-- Main content -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Data Table Barang Keluar</h3>
+            <h3 class="card-title">Data Table Barang Masuk</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -40,7 +40,7 @@
             }
             ?>
 
-            <button type="submit" class="btn btn-success"><a href="<?= base_url('barang_keluar/tambah') ?>" style="color: white;"> + Tambah Data Barang Keluar</a></button>
+            <button type="submit" class="btn btn-success"><a href="<?= base_url('transaksi_masuk/tambah') ?>" style="color: white;"> + Tambah Data Barang Masuk</a></button>
             <br><br><br>
 
             <table id="example1" class="table table-bordered table-striped">
@@ -67,7 +67,6 @@
                             <td><?= $value['tanggal'] ?></td>
                             <td><?= $value['keterangan'] ?? "-" ?></td>
                         <?php } ?>
-
                 </tbody>
             </table>
         </div>

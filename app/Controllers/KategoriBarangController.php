@@ -92,7 +92,11 @@ class KategoriBarangController extends BaseController
     // FUNGSI HAPUS BARANG
     public function hapus_kategori($id)
     {
+        // HAPUS DATA BARANG BERDASARKAN ID
         $this->kategoriBarangModel->delete($id);
+        // SET FLASHDATA UNTUK MENAMPILKAN ALERT SUCCESS
+        session()->setFlashdata('success', 'Berhasil menghapus kategori');
+        // ARAHKAN KE HALAMAN /kategori_barang
         return redirect()->to(base_url('kategori_barang'));
     }
 }

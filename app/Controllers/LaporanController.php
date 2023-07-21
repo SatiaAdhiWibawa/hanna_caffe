@@ -39,7 +39,7 @@ class LaporanController extends BaseController
     public function download_harian()
     {
         $tanggal = $this->request->getVar('tanggal_download');
-        // AMBIL DATA STOCK OF NAME JOIN id_barang DARI TANGGAL barang ambil nama_barang
+        // AMBIL DATA STOCK OF NAME JOIN id_barang DARI TANGGAL BARANG AMBIL nama_barang
         $dataStockOpname = $this->stockOpnameModel->where("tanggal", $tanggal)->findAll();
 
         // JIKA DATA TIDAK DITEMUKAN

@@ -25,7 +25,6 @@ class Barang extends Migration
             'id_kategori'        => [
                 'type'           => 'INT',
                 'constraint'     => 11,
-                'foreign_key'    => true,
             ],
             'stok'               => [
                 'type'           => 'INT',
@@ -45,6 +44,7 @@ class Barang extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
+        // $this->forge->addForeignKey('id_kategori', 'kategori_barang', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('barang');
     }
 

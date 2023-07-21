@@ -30,7 +30,7 @@
 
             <!-- /.card-header -->
             <div class="card-header">
-                <h3 class="card-title">Tambah Data Barang Keluar</h3>
+                <h3 class="card-title">Tambah Data Barang</h3>
             </div>
 
             <!-- form start -->
@@ -38,7 +38,7 @@
                 <div class="row ">
                     <div class="col-sm-8 ">
 
-                        <form action="<?= base_url('barang_keluar/tambah_barang_keluar') ?>" method="post">
+                        <form action="<?= base_url('transaksi_masuk/tambah_transaksi_masuk') ?>" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Barang</label>

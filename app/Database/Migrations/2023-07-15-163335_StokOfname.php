@@ -17,7 +17,6 @@ class StokOpname extends Migration
             'id_barang'          => [
                 'type'           => 'INT',
                 'constraint'     => 11,
-                'foreign_key'    => true,
             ],
             'jumlah'             => [
                 'type'           => 'INT',
@@ -40,6 +39,8 @@ class StokOpname extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('id_barang', 'barang', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('stok_opname');
     }
 
