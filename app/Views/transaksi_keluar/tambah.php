@@ -30,7 +30,7 @@
 
             <!-- /.card-header -->
             <div class="card-header">
-                <h3 class="card-title">Tambah Data Barang Keluar</h3>
+                <h3 class="card-title">Tambah Data Transaksi Keluar</h3>
             </div>
 
             <!-- form start -->

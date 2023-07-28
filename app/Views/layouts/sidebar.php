@@ -70,7 +70,7 @@ $session = session();
                         <a href="<?= base_url('transaksi_masuk') ?>" class="nav-link <?= ($currentURL === 'transaksi_masuk') ? 'bg-gradient-primary active' : ''; ?>">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
-                                Kelola Barang Masuk
+                                Kelola Transaksi Masuk
                             </p>
                         </a>
                     </li>
@@ -78,7 +78,7 @@ $session = session();
                         <a href="<?= base_url('transaksi_keluar') ?>" class="nav-link <?= ($currentURL === 'transaksi_keluar') ? 'bg-gradient-primary active' : ''; ?>">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
-                                Kelola Barang Keluar
+                                Kelola Transaksi Keluar
                             </p>
                         </a>
                     </li>
