@@ -44,7 +44,7 @@ class Barang extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        // $this->forge->addForeignKey('id_kategori', 'kategori_barang', 'id', 'CASCADE', 'CASCADE');
+        // $this->forge->addForeignKey('id_kategori', 'kategori_barang', 'id');
         $this->forge->createTable('barang');
     }
 
